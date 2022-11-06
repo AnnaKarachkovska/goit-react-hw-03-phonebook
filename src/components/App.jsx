@@ -52,8 +52,6 @@ class App extends React.Component {
   };
 
   delete = ev => {
-    console.log(this.state.contacts[0].id);
-    console.log(ev.target.id);
     const filteredContacts = this.state.contacts.filter(
       contact => contact.id !== ev.target.id
     );
@@ -64,7 +62,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
     const storageContacts = JSON.parse(localStorage.getItem('Contacts'));
 
     if (storageContacts) {
@@ -73,14 +70,12 @@ class App extends React.Component {
   }
 
   componentDidUpdate(_, prevState) {
-    console.log('componentDidUpdate');
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('Contacts', JSON.stringify(this.state.contacts));
     }
   }
 
   render() {
-    console.log('render');
     return (
       <>
         <div className={styles.section}>
